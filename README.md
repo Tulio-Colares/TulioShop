@@ -1,1 +1,0 @@
-# TulioShop-CRA-2
