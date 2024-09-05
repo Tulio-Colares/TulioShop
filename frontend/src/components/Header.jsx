@@ -2,6 +2,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import {LinkContainer} from 'react-router-bootstrap'
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
 
 function Header() {
   return (
@@ -13,8 +14,16 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
           <Nav>
-            <Nav.Link href="#home">Cart</Nav.Link>
-            <Nav.Link href="#link">Sign In</Nav.Link>
+            <LinkContainer to='/cart'>
+              <Nav.Link>
+                <FaShoppingCart /> Cart
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/login'>
+              <Nav.Link href='/login'>
+                <FaUser /> Sign In
+              </Nav.Link>
+            </LinkContainer>
           </Nav>
         </Navbar.Collapse>
       </Container>
