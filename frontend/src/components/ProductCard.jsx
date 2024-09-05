@@ -10,7 +10,7 @@ const ProductCard = ({ product }) => {
       <Card.Body>
         <a href={`/product/${product._id}`}>
           <Card.Title as='div'>
-            <strong>{product.name}</strong>
+            <strong>{product.name.substring(0, 25) + '...'}</strong>
           </Card.Title>
         </a>
 
