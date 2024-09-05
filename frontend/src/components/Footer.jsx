@@ -5,7 +5,7 @@ const Footer = () => {
     const date = new Date()
 
   return (
-    <footer style={{paddingTop: "90vh"}}>
+    <footer>
         <Container>
             <Row>
                 <Col className='text-center'>
