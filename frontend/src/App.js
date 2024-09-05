@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
         <Header />
-          <Container style={{minHeight: '90vh'}}>
+          <Container id='main'>
             <HomeScreen />
           </Container>
         <Footer />
