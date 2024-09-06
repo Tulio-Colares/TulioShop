@@ -7,6 +7,12 @@ app.get('/api/products', (req, res) => {
     res.json(products)
 })
 
+app.get('/api/product/:id', (req, res) => {
+    let product = products.filter((p) => p._id == req.params.id)
+    product = product[0]
+    res.json(product)
+})
+
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)
 })
