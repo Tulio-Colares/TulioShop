@@ -2,16 +2,32 @@ const express = require('express')
 const app = express()
 const port = 5000
 const products = require('./products')
+const mongoose = require('mongoose')
+require('dotenv').config()
+const asyncHandler = require('express-async-handler')
+const Product = require('./models/productsModel')
 
-app.get('/api/products', (req, res) => {
+// Connecting to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => {
+    console.log('Conectado ao MongoDB');
+  })
+  .catch(err => {
+    console.error('Erro ao conectar ao MongoDB', err);
+  });
+
+
+// Products Route
+app.get('/api/products', asyncHandler(async (req, res, next) => {
+    const products = await Product.find({})
     res.json(products)
-})
+}))
 
-app.get('/api/product/:id', (req, res) => {
-    let product = products.filter((p) => p._id == req.params.id)
-    product = product[0]
+app.get('/api/product/:id', asyncHandler(async (req, res, next) => {
+    const productId = req.params.id
+    let product = await Product.findById(productId)
     res.json(product)
-})
+}))
 
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)
