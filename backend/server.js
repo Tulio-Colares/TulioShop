@@ -18,14 +18,15 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 // Products Route
-app.get('/api/products', asyncHandler(async (req, res, next) => {
+app.get('/api/products', asyncHandler(async (req, res) => {
     const products = await Product.find({})
     res.json(products)
 }))
 
-app.get('/api/product/:id', asyncHandler(async (req, res, next) => {
+// Single Product Route
+app.get('/api/product/:id', asyncHandler(async (req, res) => {
     const productId = req.params.id
-    let product = await Product.findById(productId)
+    const product = await Product.findById(productId)
     res.json(product)
 }))
 
