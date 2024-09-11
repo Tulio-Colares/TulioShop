@@ -4,12 +4,12 @@ import Rating from './Rating';
 const ProductCard = ({ product }) => {
   return (
     <Card className='my-3 p-3 rounded'>
-      <a href={`/product/${product._id}`}>
+      <a href={`/products/${product._id}`}>
         <Card.Img src={product.image} variant='top' />
       </a>
 
       <Card.Body>
-        <a href={`/product/${product._id}`}>
+        <a href={`/products/${product._id}`}>
           <Card.Title as='div'>
             <strong>{product.name.substring(0, 25) + '...'}</strong>
           </Card.Title>

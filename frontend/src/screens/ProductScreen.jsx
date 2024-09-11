@@ -11,7 +11,7 @@ const ProductScreen = () => {
     useEffect(() => {
       const getProduct = async () => {
         try {
-          let product = await axios.get(`/api/product/${id}`)
+          let product = await axios.get(`/api/products/${id}`)
           setProduct(product.data)
           console.log(product.data)
         } catch (error) {
