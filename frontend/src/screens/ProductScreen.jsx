@@ -6,8 +6,8 @@ import Loader from '../components/Loader'
 import Message from '../components/Message'
 
 const ProductScreen = () => {
-    const {id: productId} = useParams()
-    const {data: product, isLoading, error } = useGetProductDetailsQuery(productId)
+    const {id} = useParams()
+    const {data: product, isLoading, error } = useGetProductDetailsQuery(id)
     
 
   return (
