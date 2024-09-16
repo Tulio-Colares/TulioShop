@@ -9,6 +9,10 @@ const userRoutes = require('./routes/userRoutes.js')
 
 mongoConnect()
 
+// Body Parser Middleware
+app.use(express.json())
+app.use(express.urlencoded({ extended: true}))
+
 // Product Routes
 app.use('/api/products', productRoutes)
 
