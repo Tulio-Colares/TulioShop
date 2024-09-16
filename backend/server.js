@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 5000
+const cookieParser = require('cookie-parser')
 
 const mongoConnect = require('./config/database.js')
 require('dotenv').config()
@@ -12,6 +13,9 @@ mongoConnect()
 // Body Parser Middleware
 app.use(express.json())
 app.use(express.urlencoded({ extended: true}))
+
+// Cookie-Parser middleware
+app.use(cookieParser())
 
 // Product Routes
 app.use('/api/products', productRoutes)
