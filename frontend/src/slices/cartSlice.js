@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-// here we use "apiSlice" because we are NOT using endpoints with asyncronous requests!
+// here we use "createSlice" because we are NOT using endpoints with asyncronous requests!
 import { updateCart } from '../utils/cartUtils';
 
 const initialState = localStorage.getItem('cart')
@@ -18,7 +18,7 @@ const cartSlice = createSlice({
       return updateCart(state, item)
     },
     removeFromCart: (state, action) => {
-      state.cartItems = state.cartItems.filter((item) => item._id !== action.payload)
+      state.cartItems = state.cartItems.filter((x) => x._id !== action.payload)
 
       return updateCart(state)
     }
