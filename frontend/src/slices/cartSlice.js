@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-// here we use "createSlice" because we are NOT using endpoints with asyncronous requests!
+// here we use "create Slice" because we are NOT using endpoints with asyncronous requests!
 import { updateCart } from '../utils/cartUtils';
 
 const initialState = localStorage.getItem('cart')
@@ -13,6 +13,19 @@ const cartSlice = createSlice({
     addToCart: (state, action) => {
       // The item to add to the cart
       const item = action.payload;
+
+      // Check if the item is already in the cart
+      const existItem = state.cartItems.find((x) => x._id === item._id);
+
+      if (existItem) {
+        // If exists, update quantity
+        state.cartItems = state.cartItems.map((x) =>
+            x._id === existItem._id ? item : x
+        );
+        } else {
+        // If not exists, add new item to cartItems
+        state.cartItems = [...state.cartItems, item];
+        }
 
       // Update the cart state using the updateCart function
       return updateCart(state, item)
