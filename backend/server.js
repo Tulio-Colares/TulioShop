@@ -7,6 +7,7 @@ const mongoConnect = require('./config/database.js')
 require('dotenv').config()
 const productRoutes = require('./routes/productRoutes.js')
 const userRoutes = require('./routes/userRoutes.js')
+const orderRoutes = require('./routes/orderRoutes.js');
 
 mongoConnect()
 
@@ -22,6 +23,9 @@ app.use('/api/products', productRoutes)
 
 // User Routes
 app.use('/api/users', userRoutes)
+
+// Order Routes
+app.use('/api/orders', orderRoutes)
 
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)
