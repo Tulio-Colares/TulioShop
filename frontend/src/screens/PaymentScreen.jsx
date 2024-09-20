@@ -33,7 +33,6 @@ const PaymentScreen = () => {
       <h1>Payment Method</h1>
 
       <Form onSubmit={submitHandler}>
-        
         <Form.Group>
           <Form.Label as='legend'>Select Method</Form.Label>
           <Col>
@@ -53,7 +52,6 @@ const PaymentScreen = () => {
         <Button type='submit' variant='primary'>
           Continue
         </Button>
-
       </Form>
     </FormContainer>
   );

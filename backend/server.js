@@ -27,6 +27,11 @@ app.use('/api/users', userRoutes)
 // Order Routes
 app.use('/api/orders', orderRoutes)
 
+// Paypal safe route
+app.get('/api/config/paypal', (req, res) => res.send({
+    clientId: process.env.PAYPAL_CLIENT_ID
+}))
+
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)
 })
