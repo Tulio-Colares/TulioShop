@@ -9,5 +9,4 @@ const AdminRoute = () => {
     <Navigate to='/login' replace />
   );
 };
-
 export default AdminRoute;
