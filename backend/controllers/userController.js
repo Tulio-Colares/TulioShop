@@ -152,7 +152,7 @@ const authUser = asyncHandler(async (req, res) => {
       user.email = email
       user.isAdmin = Boolean(isAdmin)
 
-      const updatedUser = await User.save()
+      const updatedUser = await user.save()
       res.status(200).json({
         _id: updatedUser._id,
         name: updatedUser.name,
