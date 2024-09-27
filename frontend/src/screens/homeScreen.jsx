@@ -5,14 +5,11 @@ import ProductCard from '../components/ProductCard';
 import { useGetProductsQuery } from '../slices/productsApiSlice';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
-import Pagination from '../components/Paginate';
+import Paginate from '../components/Paginate';
 
 const HomeScreen = () => {
-  const { pageNumber } = useParams();
-  console.log(pageNumber);
-  const { data, isLoading, error } = useGetProductsQuery({
-    pageNumber,
-  });
+  const { pageNumber, keyword } = useParams();
+  const { data, isLoading, error } = useGetProductsQuery({ pageNumber, keyword });
 
   return (
     <>
@@ -30,7 +27,11 @@ const HomeScreen = () => {
               </Col>
             ))}
           </Row>
-          <Pagination pages={data.pages} page={data.page}/>
+          <Paginate
+            pages={data.pages}
+            page={data.page}
+            keyword={keyword ? keyword : ''}
+          />
         </>
     )}
     </>

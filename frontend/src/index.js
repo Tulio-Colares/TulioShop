@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux'
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -13,7 +14,6 @@ import App from './App';
 import HomeScreen from './screens/homeScreen';
 import ProductScreen from './screens/ProductScreen';
 import store from './store'
-import { Provider } from 'react-redux'
 import CartScreen from './screens/CartScreen';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen'
@@ -34,7 +34,9 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<App />}>
       <Route index={true} path='/' element={<HomeScreen />} />
+      <Route path='/search/:keyword' element={<HomeScreen />} />
       <Route path='/page/:pageNumber' element={<HomeScreen />} />
+      <Route path='/search/:keyword/page/:pageNumber' element={<HomeScreen />}/>
       <Route path='/products/:id' element={<ProductScreen />} />
       <Route path='/cart' element={<CartScreen />} />
       <Route path='/login' element={<LoginScreen />} />

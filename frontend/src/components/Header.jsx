@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
+import SearchBox from './SearchBox';
 
 function Header() {
   const {cartItems} = useSelector((state) => state.cart)
@@ -34,11 +35,11 @@ function Header() {
           </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
+        <SearchBox />
           <Nav>
             <LinkContainer to='/cart'>
               <Nav.Link>
                 <FaShoppingCart /> Cart
-
                 {cartItems.length > 0 && (
                   <Badge pill bg='success' style={{marginLeft: '5px'}}>
                     {cartItems.reduce((a, c) => a + c.qty, 0)}
@@ -46,6 +47,7 @@ function Header() {
                 )}
               </Nav.Link>
             </LinkContainer>
+
             {userInfo ? (
               <>
                 <NavDropdown title={userInfo.name} id='username'>
@@ -57,6 +59,7 @@ function Header() {
                   </NavDropdown.Item>
                 </NavDropdown>
               </>
+
             ) : (
               <LinkContainer to='/login'>
                 <Nav.Link>
@@ -64,6 +67,7 @@ function Header() {
                 </Nav.Link>
               </LinkContainer>
             )}
+
             {userInfo && userInfo.isAdmin && (
               <NavDropdown title='Admin' id='adminMenu'>
                 <LinkContainer to='/admin/productlist'>
@@ -77,7 +81,6 @@ function Header() {
                 <LinkContainer to='/admin/orderlist'>
                   <NavDropdown.Item>Orders</NavDropdown.Item>
                 </LinkContainer>
-              
             </NavDropdown>
             )}
           </Nav>
