@@ -11,6 +11,7 @@ import {
 import {PayPalScriptProvider} from '@paypal/react-paypal-js'
 
 import App from './App';
+import { HelmetProvider } from 'react-helmet-async'
 import HomeScreen from './screens/homeScreen';
 import ProductScreen from './screens/ProductScreen';
 import store from './store'
@@ -67,10 +68,12 @@ const router = createBrowserRouter(
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider store={store}>
-      <PayPalScriptProvider deferLoading={false} >
-        <RouterProvider router={router} />
-      </PayPalScriptProvider>
-    </Provider>
+    <HelmetProvider>
+      <Provider store={store}>
+        <PayPalScriptProvider deferLoading={false} >
+          <RouterProvider router={router} />
+        </PayPalScriptProvider>
+      </Provider>
+    </HelmetProvider>
   </React.StrictMode>
 );
