@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
 import { Table, Button, Row, Col } from 'react-bootstrap';
 import { FaEdit, FaPlus, FaTrash } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import Message from '../../components/Message';
 import Loader from '../../components/Loader';
@@ -11,14 +11,14 @@ import {
   useCreateProductMutation,
   useDeleteProductMutation
 } from '../../slices/productsApiSlice';
-import { toast } from 'react-toastify';
 import Paginate from '../../components/Paginate';
+
 
 const ProductListScreen = () => {
   const { pageNumber } = useParams();
   const { data, isLoading, error, refetch } = useGetProductsQuery({pageNumber});
 
-  const [createProduct, {isLoading: loadingCreate}] = useCreateProductMutation()
+  const [createProduct, { isLoading: loadingCreate }] = useCreateProductMutation()
   const [deleteProduct, { isLoading: loadingDelete }] = useDeleteProductMutation();
   
   const deleteHandler = async (id) => {
@@ -36,7 +36,7 @@ const ProductListScreen = () => {
     if (window.confirm('Are you sure you want to create a new product?')) {
       try {
         await createProduct();
-        toast.success('Product deleted')
+        toast.success('Product created successfully')
         refetch();
       } catch (err) {
         toast.error(err?.data?.message || err.error);
@@ -50,6 +50,7 @@ const ProductListScreen = () => {
         <Col>
           <h1>Products</h1>
         </Col>
+
         <Col className='text-end'>
           <Button className='my-3' onClick={createProductHandler}>
             <FaPlus /> Create Product
@@ -103,7 +104,7 @@ const ProductListScreen = () => {
               ))}
             </tbody>
           </Table>
-          {/* PAGINATE PLACEHOLDER */}
+          <Paginate pages={data.pages} page={data.page} isAdmin={true} />
         </>
       )}
     </>

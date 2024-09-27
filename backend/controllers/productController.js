@@ -5,7 +5,7 @@ const asyncHandler = require('express-async-handler')
 // @route   GET /api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  const pageSize = 12;
+  const pageSize = 2;
   const page = Number(req.query.pageNumber) || 1;
   const count = await Product.countDocuments();
   const pages = Math.ceil(count / pageSize)
