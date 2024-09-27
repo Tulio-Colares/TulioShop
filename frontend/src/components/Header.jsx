@@ -3,6 +3,8 @@ import {LinkContainer} from 'react-router-bootstrap'
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+
+import logo from '../images/logo.png'
 import { useLogoutMutation } from '../slices/usersApiSlice';
 import { logout } from '../slices/authSlice';
 import SearchBox from './SearchBox';
@@ -31,7 +33,16 @@ function Header() {
     <Navbar expand="lg" bg="dark" data-bs-theme="dark">
       <Container>
       <LinkContainer to='/'>
-            <Navbar.Brand>TulioShop</Navbar.Brand>
+            <Navbar.Brand>
+              <img
+                alt=""
+                src={logo}
+                width="30"
+                height="30"
+                className="d-inline-block align-top"
+              />{' '}
+              TulioShop
+            </Navbar.Brand>
           </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav" className='justify-content-end'>
