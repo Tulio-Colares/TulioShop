@@ -1,3 +1,15 @@
+# Hello there! Welcome to the TulioShop repository!
+This project is being used as a way to train a series of skills, both in frontend and backend.  
+Some of the project's features:  
+- Frontend entirely made in React-Bootstrap, including a carousel of top-rated products  
+- Keyword search function  
+- Fully functional shopping cart  
+- User authentication functions  
+- Specific administrator functions (add, change and delete products, view customers' shopping lists, and much more)  
+- Backend with Node.js, Express, MongoDB and Mongoose  
+
+--------------------------------------------------------------------------------------------------------------------------------
+
 # Olá! Bem-vindo ao repositório do TulioShop!
 Este projeto está sendo usado como uma forma de treinar uma série de habilitades, tanto em frontend quanto em backend.  
 Algumas das features do projeto:  
