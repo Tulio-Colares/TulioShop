@@ -20,7 +20,7 @@ Some images from the full website:
 # Home  
 ![Home](https://github.com/user-attachments/assets/123ab4f9-1cfe-41bf-8ca0-f1590bdeaa58)
 
-# Admin Pannel (products section)  
+# Admin Panel (products section)  
 ![painel admin](https://github.com/user-attachments/assets/5ee1467c-f8b2-424c-b210-e77891926d81)
 
 # Products EditScreen  
