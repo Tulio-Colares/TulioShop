@@ -35,13 +35,12 @@ app.get('/api/config/paypal', (req, res) => res.send({
 }))
 
 // Upload Routes
-app.use('/api/upload', uploadRoutes);
-
 const __dirName = path.resolve();
 app.use('/uploads', express.static(path.join(__dirName, '/uploads')));
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirName, '/frontend/build')));
+
   app.get('*', (req, res) =>
     res.sendFile(path.resolve(__dirName, 'frontend', 'build', 'index.html'))
   );
@@ -50,6 +49,7 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running....');
   });
 }
+
 
 app.listen(port, () => {
     console.log(`example app listening on port ${port}`)

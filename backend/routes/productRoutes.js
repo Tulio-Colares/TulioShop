@@ -7,8 +7,7 @@ const {
     updateProduct,
     deleteProduct,
     createProductReview,
-    getTopProducts,
-    testRoute
+    getTopProducts
 } = require('../controllers/productController')
 const { protect, admin } = require('../middleware/authMiddleware.js');
 
