@@ -26,7 +26,7 @@ Some images from the full website:
 # Products EditScreen  
 ![Products editScreen](https://github.com/user-attachments/assets/9fae0ba2-fde0-403c-a302-41b7ebaba14a)
 
-#Product EditScreen (single product)  
+# Product EditScreen (single product)  
 ![Edit ProductScreen](https://github.com/user-attachments/assets/ac46b464-f750-4af2-a6dd-1152e7caf2da)
 
 # Shopping Cart  
